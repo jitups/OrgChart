@@ -1,0 +1,66 @@
+<div class="card flex justify-content-center">
+  <p-organizationChart [value]="data">
+    <ng-template let-node pTemplate="default">
+      <div
+        *ngIf="node.data.shape==='R'"
+        pDroppable (onDrop)="drop(node)">
+      <div  pDraggable (onDragStart)="dragStart(node)"  (onDragEnd)="dragEnd()">
+        <p-button
+          class="button--remove"
+          icon="pi pi-times"
+          styleClass="p-button-rounded p-button-danger p-button-outlined"
+          (click)="removeNode(node)"
+        ></p-button>
+        <div class="p-2 text-center">
+          <img
+            src="https://primefaces.org/cdn/primeng/images/flag/flag_placeholder.png"
+            [alt]="node.label"
+            [class]="'flag' + ' flag-' + node.data"
+            width="32"
+          />
+          <div class="font-bold">{{ node.data.name }}</div>
+          <div class="p-2">{{ node.data.title }}</div>
+        </div>
+        <p-button
+          class="button--add"
+          icon="pi pi-plus"
+          styleClass="p-button-rounded p-button-success p-button-outlined"
+          (click)="addNode(node)"
+        >
+        </p-button>
+      </div>
+      </div>
+      <div
+        *ngIf="node.data.shape==='T'"
+        pDroppable (onDrop)="drop(node)">
+      <div  class="triangle"   pDraggable (onDragStart)="dragStart(node)" (onDragEnd)="dragEnd()">
+        <div class="triangle-content">
+          <p-button
+            class="button--remove"
+            icon="pi pi-times"
+            styleClass="p-button-rounded p-button-danger p-button-outlined"
+            (click)="removeNode(node)"
+          ></p-button>
+          <div class="p-2 text-center">
+            <img
+              src="https://primefaces.org/cdn/primeng/images/flag/flag_placeholder.png"
+              [alt]="node.label"
+              [class]="'flag' + ' flag-' + node.data"
+              width="32"
+            />
+            <div class="font-bold">{{ node.data.name }}</div>
+            <div class="p-2">{{ node.data.title }}</div>
+          </div>
+          <p-button
+            class="button--add"
+            icon="pi pi-plus"
+            styleClass="p-button-rounded p-button-success p-button-outlined"
+            (click)="addNode(node)"
+          >
+          </p-button>
+        </div>
+      </div>
+      </div>
+    </ng-template>
+  </p-organizationChart>
+</div>

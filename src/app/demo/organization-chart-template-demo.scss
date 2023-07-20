@@ -1,0 +1,12 @@
+.triangle{
+  width: 0; 
+  height: 0; 
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  border-top: 80px solid #f00;
+}
+.triangle-content{
+  position:relative;
+  top:-155px;
+  left:-30px;
+}
